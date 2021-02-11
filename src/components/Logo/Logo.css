@@ -1,0 +1,9 @@
+.Tilt {
+
+    background: Linear-gradient(89deg, #7e9ee4 0%, #4c59cf 100%);
+}
+
+.Tilt-inner {
+    height: 100px;
+    width: 100px; 
+}

@@ -38,6 +38,7 @@ class Signin extends React.Component {
   render() {
     const { onRouteChange } = this.props;
     return (
+      //tachyons card tagg, this givs the sign in a nice boox
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
           <div className="measure">
@@ -66,7 +67,11 @@ class Signin extends React.Component {
             </fieldset>
             <div className="">
               <input
-                onClick={this.onSubmitSignIn}
+                //where to go signin or register or home or signout
+                onClick= {this.onSubmitSignIn} 
+                //onClick = {onRouteChange} --> chnge on click
+                // function 
+                //onClick = {() => onRouteChange('home')} //on sigin --> home
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"

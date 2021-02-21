@@ -18,21 +18,23 @@ class Signin extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3000/signin', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword
-      })
-    })
-      .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
-        }
-      })
+     fetch('http://localhost:3000/signin', {
+       method: 'post',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({
+         email: this.state.signInEmail,
+         password: this.state.signInPassword
+       })
+     })
+    //   .then(response => response.json())
+    //   .then(user => {
+    //     if (user.id) {
+    //       this.props.loadUser(user)
+    //       this.props.onRouteChange('home');
+    //     }
+    // })
+    //console.log(this.state);
+    this.props.onRouteChange('home');
   }
 
   render() {
@@ -72,6 +74,7 @@ class Signin extends React.Component {
                 //onClick = {onRouteChange} --> chnge on click
                 // function 
                 //onClick = {() => onRouteChange('home')} //on sigin --> home
+                //onClick = {() => this.props.onRouteChange('home')} //on sigin --> home
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"

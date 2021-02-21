@@ -29,6 +29,7 @@ const particlesOptions = {
   }
 }
 
+
 class App extends Component {
   constructor() {
     super();
@@ -47,6 +48,11 @@ class App extends Component {
       }
     }
   }
+  // componentDidM ount(){
+  //   fetch('http://localhost:3000')
+  //     .then(response => response.json())
+  //     .then(console.log)
+  // }
 
   loadUser = (data) => {
     this.setState({user: {

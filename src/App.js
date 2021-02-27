@@ -37,7 +37,7 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
-      route: 'signin',  //home ,,, signin
+      route: 'signin',  //home ,,, signin TO THE HOME
       isSignedIn: false,
       user: {
         id: '',

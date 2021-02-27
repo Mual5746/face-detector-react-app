@@ -9,7 +9,7 @@ class Register extends React.Component {
       name: ''
     }
   }
-
+  //action on the change 
   onNameChange = (event) => {
     this.setState({name: event.target.value})
   }

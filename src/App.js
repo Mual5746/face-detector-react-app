@@ -29,24 +29,25 @@ const particlesOptions = {
   }
 }
 
-
+const initialState = {
+    input: '',
+    imageUrl: '',
+    box: {},
+    route: 'signin',  //home ,,, signin TO THE HOME
+    isSignedIn: false,
+    user: {
+      id: '',
+      name: '',
+      email: '',
+      entries: 0,
+      joined: ''
+    }
+}
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',  //home ,,, signin TO THE HOME
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState
+     
   }
   // componentDidM ount(){
   //   fetch('http://localhost:3000')
@@ -116,7 +117,7 @@ class App extends Component {
   
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({isSignedIn: false})
+      this.setState( initialState) //{isSignedIn: false})
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }

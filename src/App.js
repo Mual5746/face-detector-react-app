@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
+//import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
@@ -10,11 +10,7 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
-//ex image: https://res.cloudinary.com/demo/image/upload/coupled.jpg
-//You must add your own API key here from Clarifai.
-const app = new Clarifai.App({
-  apiKey: '9a37b60cebd343e0b955df6f5ff8307a'//'YOUR API KEY HERE'
- });
+
 
 const particlesOptions = {
 
@@ -88,16 +84,18 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    app.models
-      .predict(
-      
-        // .predict('c0c0ac362b03416da06ab3fa36fb58e3', this.state.input)
-        Clarifai.FACE_DETECT_MODEL,
-        this.state.input)
+    fetch('https://arcane-ocean-72841.herokuapp.com/imageurl', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        input: this.state.input
+      })
+    })
+      .then(response => response.json() )
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('http://localhost:3000/image', {
+          fetch('https://arcane-ocean-72841.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
